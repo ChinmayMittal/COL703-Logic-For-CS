@@ -1,0 +1,11 @@
+(q -> r) |- ((p \/ q) -> (p \/ r))
+
+[premise] (q -> r)
+[assumption] (p \/ q)
+[assumption] p
+[or-in1 5] (p \/ r)
+[assumption] q
+[mp 7, 3] r
+[or-in2 8] (p \/ r)
+[or-el 4, 5-6, 7-9] (p \/ r)
+[impl-in 4-10] ((p \/ q) -> (p \/ r))

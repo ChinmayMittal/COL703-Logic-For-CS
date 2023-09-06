@@ -1,0 +1,22 @@
+p, q |- p
+
+[premise] p
+[copy 3] p
+[mp 1, 2] q
+[or-el 1, 2-3, 4-5] p
+[assumption] p
+[mt 5, 7] p
+[and-in 1,2] p
+[and-e1 1] p
+[and-e2 1] p
+[or-in1 1] p
+[or-in2 2] p
+[or-el 1, 2-3, 3-4] (p /\ q)
+[impl-in 1-2] ( (! p) -> q)
+[neg-in 1-2] p
+[neg-el 1, 2] p
+[bot-el 1] \bot
+[dneg-in 1] p
+[dneg-el 1] p
+[pbc 2-3] p
+[lem] (p \/ (!p))

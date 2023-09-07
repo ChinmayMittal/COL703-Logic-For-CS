@@ -202,4 +202,4 @@ if __name__ == '__main__':
             exit()
         pretty_tree = json.dumps(ast_tree, indent=4, default=lambda x : str(x))
         # print(pretty_tree)
-        print(check_proof(ast_tree))
+        print("correct" if check_proof(ast_tree) else "incorrect")

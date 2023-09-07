@@ -1,22 +1,25 @@
-p, q |- p
+p, q, (q->r), (! r)|- p
 
 [premise] p
 [copy 3] p
-[mp 1, 2] q
+[premise] q
+[premise] (q->r)
+[mp 5, 6] r
+[premise] (! r)
+[mt 6, 8]  (! q)
 [or-el 1, 2-3, 4-5] p
-[assumption] p
-[mt 5, 7] p
-[and-in 1,2] p
-[and-e1 1] p
-[and-e2 1] p
-[or-in1 1] p
-[or-in2 2] p
+[and-in 3,4] (p /\ p)
+[and-in 5, 7] (q /\ r)
+[and-e1 12] q
+[and-e2 12] r
+[or-in1 13] (q \/ r)
+[or-in2 15] (z \/ (q \/ r))
+[dneg-in 6] (!(!(q->r)))
+[dneg-el 17] (q->r)
+[neg-el 7, 8] \bot
+[bot-el 19] (p->r)
 [or-el 1, 2-3, 3-4] (p /\ q)
 [impl-in 1-2] ( (! p) -> q)
 [neg-in 1-2] p
-[neg-el 1, 2] p
-[bot-el 1] \bot
-[dneg-in 1] p
-[dneg-el 1] p
 [pbc 2-3] p
-[lem] (p \/ (!p))
+[lem] ( p \/ (! p))

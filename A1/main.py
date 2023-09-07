@@ -1,11 +1,11 @@
 import sys
 import json
-
 from my_parser import Lark_StandAlone, Transformer, v_args
+from utils import check_proof
 
 inline_args = v_args(inline=True)
 
-class TreeToJson(Transformer):
+class TreeToDict(Transformer):
     
     def natded(self, children):
         return {
@@ -191,10 +191,15 @@ class TreeToJson(Transformer):
                 "end": children[1]
             }
 
-parser = Lark_StandAlone(transformer=TreeToJson())
+parser = Lark_StandAlone(transformer=TreeToDict())
 
 if __name__ == '__main__':
     with open(sys.argv[1]) as f:
-        ast_tree = (parser.parse(f.read()))
+        try:
+            ast_tree = (parser.parse(f.read()))
+        except Exception as e:
+            print("Error in Parsing Parse Tree")
+            exit()
         pretty_tree = json.dumps(ast_tree, indent=4, default=lambda x : str(x))
-        print(pretty_tree)
+        # print(pretty_tree)
+        print(check_proof(ast_tree))

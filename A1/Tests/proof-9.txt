@@ -1,0 +1,6 @@
+p |- (p \/ q)
+
+[premise] p
+[assumption] q
+[and-in 3,4] (p /\ q)
+[or-in1 3] (p \/ q)

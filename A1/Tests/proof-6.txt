@@ -1,0 +1,9 @@
+(p -> q) |- ((!p) \/ q)
+
+[premise] (p -> q)
+[lem] (q \/ (!q))
+[assumption] q
+[or-in2 5] ((!p) \/ q)
+[assumption] (! q)
+[mp 7, 3] (!p)
+[or-el 4, 5-6, 7-9] ((!p) \/ q)

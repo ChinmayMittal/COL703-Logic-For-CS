@@ -25,6 +25,7 @@
 start: sequent proof -> natded
 
 sequent: formula ("," formula)* "|-" formula -> sequent
+        | "|-" formula -> sequent
 
 proof: proof_line* -> proof
 

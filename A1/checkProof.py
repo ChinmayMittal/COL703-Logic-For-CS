@@ -193,13 +193,15 @@ class TreeToDict(Transformer):
 
 parser = Lark_StandAlone(transformer=TreeToDict())
 
-if __name__ == '__main__':
-    with open(sys.argv[1]) as f:
+def checkProof(filename):
+    with open(filename) as f:
         try:
             ast_tree = (parser.parse(f.read()))
         except Exception as e:
             print("Error in Parsing Parse Tree")
-            exit()
-        pretty_tree = json.dumps(ast_tree, indent=4, default=lambda x : str(x))
-        # print(pretty_tree)
-        print("correct" if check_proof(ast_tree) else "incorrect")
+            return "incorrect"
+        return "correct" if check_proof(ast_tree) else "incorrect"
+
+
+if __name__ == '__main__':
+    print(checkProof(sys.argv[1]))

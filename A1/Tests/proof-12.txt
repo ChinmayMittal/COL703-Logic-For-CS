@@ -1,0 +1,17 @@
+|-(((p -> q) /\ ((!r) -> (!q))) -> (p -> r))
+
+[assumption] ((p -> q) /\ ((!r) -> (!q)))
+[assumption] p
+[copy 3] ((p -> q) /\ ((!r) -> (!q)))
+[and-e1 5] (p -> q)
+[mp 4,6] q
+[and-e2 5] ((!r) -> (!q))
+[assumption] (!r)
+[copy 8] ((!r) -> (!q))
+[mp 9,10] (!q)
+[copy 7] q
+[neg-el 12,11] \bot
+[neg-in 9-13] (!(!r))
+[dneg-el 14] r
+[impl-in 4-15] (p -> r)
+[impl-in 3-16] (((p -> q) /\ ((!r) -> (!q))) -> (p -> r))

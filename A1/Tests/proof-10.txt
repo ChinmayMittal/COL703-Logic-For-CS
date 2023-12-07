@@ -1,0 +1,12 @@
+|- ((q -> r) -> (((!q) -> (!p)) -> (p -> r)))
+
+[assumption] (q -> r)
+[assumption] ((!q) -> (!p))
+[assumption] p
+[dneg-in 5] (!(!p))
+[mt 4,6] (!(!q))
+[dneg-el 7] q
+[mp 8,3] r
+[impl-in 5-8] (p -> r)
+[impl-in 4-9]  (((!q) -> (!p)) -> (p -> r))
+[impl-in 3-10] ((q -> r) -> (((!q) -> (!p)) -> (p -> r)))

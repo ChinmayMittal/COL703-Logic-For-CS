@@ -1,0 +1,16 @@
+p, q, r |- (p /\ (q /\ r))
+
+[premise] p
+[premise] q
+[premise] r
+[or-in1 3] (p \/ q)
+[assumption] p 
+[copy 4] q
+[copy 5] r
+[assumption] (!p)
+[assumption] q
+[copy 5] r
+[or-el 6, 7-9, 11-12] r
+[impl-in 10-13] ((!p)->r)
+[and-in 4,5] (q /\ r)
+[and-in 3,15] (p /\ (q /\ r))
